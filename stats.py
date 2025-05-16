@@ -3,10 +3,10 @@
 
 class Stats:
     def __init__(self, version="0.1.0"):
-        self.users = 0;
-        self.energy_used = 0;
-        self.version = version;
-        #self.energy_produced = 0;
+        self.users = 0
+        self.energy_used = 0
+        self.version = version
+        #self.energy_produced = 0
   
     def update_users(self, power):
         #users based on power 
