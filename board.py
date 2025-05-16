@@ -8,10 +8,15 @@ class Board:
         self.middle_y = height // 2
         self.middle_x = width // 2
         self.score = score
+        self.stats_display = []
 
         self.map_grid = [[" " for _ in range(width)] for _ in range(height)]        
     
     def generate_map(self):
+        if self.stats_display:
+            for stat_line in self.stats_display:
+                print(stat_line)
+            print("")
         print( " " + "_" * (len(self.map_grid[0]) - 1))
 
         for row in self.map_grid:
@@ -25,9 +30,10 @@ class Board:
             for x in range(self.middle_x - area_size, self.middle_x + area_size):
                 self.map_grid[y][x] = " "
     
-    def update_board(self, score):
+    def update_board(self, score, stats=None):
         self.reset_ai_area()
-        
+        if stats:
+            self.stats_display = stats.get_stats_display()
 
         if score < 10:
             self.level_1_ai()
