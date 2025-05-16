@@ -15,6 +15,7 @@ class TheAi:
         for i in self.connected_nodes:
             power_tick += i.bonus
         self.power += power_tick
+        self.board.update_board(self.power)
         print(self.power)
 
 
