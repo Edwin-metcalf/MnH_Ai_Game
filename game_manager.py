@@ -16,17 +16,13 @@ class GameManager:
         the_ai.connected_nodes.append(reactor)
 
 
-
         choice = input("turn the ai on? ")
-        #self.the_map.level_1_ai()
         
         while True:
-            #self.the_map.generate_map()
             choice = input("'1' to tick 2 to exit ")
             if the_ai.power >= 10:
                 event_manager.handle_event_timing()
-                #self.the_map.reset_ai_area()
-                #self.the_map.level_2_ai()
+
             if choice == "1":
                 print(the_ai.power)
                 the_ai.tick()
