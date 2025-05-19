@@ -47,6 +47,7 @@ class Board:
         print(list_score)
         print(self.middle_x)
         print(self.middle_y)
+        
         if len(list_score) == 1:
             print(f"poopy wanted a name: {len(self.map_grid)} {len(self.map_grid[0])}")
             self.map_grid[self.middle_y][self.middle_x] = list_score[0]

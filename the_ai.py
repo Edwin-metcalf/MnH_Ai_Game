@@ -1,5 +1,3 @@
-from node import Node
-from stat_organizer import StatOrganizer
 from stats import Stats
 
 class TheAi:
@@ -31,6 +29,7 @@ class TheAi:
     def update_stats(self):
         self.stats.update_users(self.power)
         self.stats.update_energy(self.connected_nodes, self.current_power_tick)
+
 
 
     

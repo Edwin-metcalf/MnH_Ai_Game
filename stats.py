@@ -1,12 +1,14 @@
 ## by nathaniel hahn for mnh
-
+from power_plant_node import PowerPlantNode
 
 class Stats:
     def __init__(self, version="0.1.0"):
         self.users = 0
         self.energy_used = 0
         self.version = version
-        #self.energy_produced = 0
+        self.energy_produced = 0
+        #self.connected_nodes = connected_nodes
+
   
     def update_users(self, power):
         #users based on power 
@@ -14,11 +16,22 @@ class Stats:
     
     def update_energy(self, connected_nodes, power_tick):
         self.energy_used += power_tick * 5
+        for i in connected_nodes:
+            if isinstance(i, PowerPlantNode):
+                self.energy_produced += 25
+            #this will become so inefficient need to process new nodes when they are created/ destroyed 
+            # then just update the tick on these update functions instead of looking through  connected nodes each time
+            
+            
+    
+
+
 
     def get_stats_display(self):
         return [
             f"VERSION: {self.version}",
             f"USERS: {self.users}",
-            f"ENERGY: {self.energy_used} kWh"
+            f"ENERGY: {self.energy_used} kWh",
+            f"ENERGY PRODUCED: {self.energy_produced} kWh"
         ]
 

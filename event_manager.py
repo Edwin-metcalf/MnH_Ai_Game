@@ -1,6 +1,5 @@
 from event import Event
 from power_plant_event import PowerPlantEvent
-from the_ai import TheAi
 
 class EventManager:
     def __init__(self):

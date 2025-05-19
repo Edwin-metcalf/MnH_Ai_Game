@@ -2,6 +2,7 @@ from the_ai import TheAi
 from node import Node
 from event_manager import EventManager
 from board import Board
+from power_plant_node import PowerPlantNode
 
 class GameManager:
     def __init__(self, version="0.1.0"):
@@ -24,6 +25,8 @@ class GameManager:
             choice = input("'1' to tick 2 to exit ")
             if the_ai.power >= 2:
                 the_map = event_manager.power_plant_event(the_map,1,1)
+
+                the_ai.connected_nodes.append(PowerPlantNode(1,50))
 
             if choice == "1":
                 print(the_ai.power)
