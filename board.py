@@ -37,9 +37,11 @@ class Board:
 
         if score < 10:
             self.level_1_ai()
-        else:
+        elif score < 100:
             self.level_2_ai()
-            
+        else:
+            self.level_3_ai()
+
         self.update_score(score)
         self.generate_map()
 
@@ -52,6 +54,11 @@ class Board:
         elif len(list_score) == 2:
             self.map_grid[self.middle_y][self.middle_x] = list_score[1]
             self.map_grid[self.middle_y][self.middle_x - 1] = list_score[0]
+        elif len(list_score) == 3:
+            self.map_grid[self.middle_y][self.middle_x] = list_score[2]
+            self.map_grid[self.middle_y][self.middle_x - 1] = list_score[1]
+            self.map_grid[self.middle_y][self.middle_x - 2] = list_score[0]
+            
         
 
 
@@ -80,6 +87,23 @@ class Board:
         self.map_grid[self.middle_y+1][self.middle_x - 1] = "-"
         self.map_grid[self.middle_y+1][self.middle_x] = "-"
         self.map_grid[self.middle_y+1][self.middle_x + 1] = "'"
+
+    def level_3_ai(self):
+        self.map_grid[self.middle_y-1][self.middle_x - 3] = "."
+        self.map_grid[self.middle_y-1][self.middle_x - 2] = "-"
+        self.map_grid[self.middle_y-1][self.middle_x - 1] = "-"
+        self.map_grid[self.middle_y-1][self.middle_x] = "-"
+        self.map_grid[self.middle_y-1][self.middle_x + 1] = "."
+
+        self.map_grid[self.middle_y][self.middle_x - 3] = "|"
+        self.map_grid[self.middle_y][self.middle_x + 1] = "|"
+
+        self.map_grid[self.middle_y + 1][self.middle_x - 3] = "'"
+        self.map_grid[self.middle_y + 1][self.middle_x - 2] = "-"
+        self.map_grid[self.middle_y + 1][self.middle_x - 1] = "-"
+        self.map_grid[self.middle_y + 1][self.middle_x] = "-"
+        self.map_grid[self.middle_y + 1][self.middle_x + 1] = "'"
+
 
         
 

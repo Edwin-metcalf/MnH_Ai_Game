@@ -16,6 +16,7 @@ class TheAi:
         if self.connected_nodes_len != len(self.connected_nodes):
             self.connected_nodes_len = len(self.connected_nodes)
             self.current_score_tick = 0
+
             for node in self.connected_nodes:
                 self.current_score_tick += node.bonus
 
@@ -32,6 +33,7 @@ class TheAi:
     def update_stats(self):
         self.stats.update_users(self.score)
         self.stats.update_energy(self.connected_nodes, self.current_score_tick)
+        self.stats.update_money(self.score)
 
 
 
