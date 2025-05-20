@@ -4,31 +4,34 @@ class TheAi:
     def __init__(self, board=None, version="0.1.0"):
         print("Ai created")
         #the main player the ai
-        self.power = 0
+        self.score = 0
         self.connected_nodes = []
+        self.connected_nodes_len = 0
         self.board = board
         self.stats = Stats(version)
-        self.current_power_tick = 0
+        self.current_score_tick = 0
 
 
     def tick(self):
-        power_tick = 0
-        for node in self.connected_nodes:
-            power_tick += node.bonus
-        
-        self.current_power_tick = power_tick
-        self.power += power_tick
+        if self.connected_nodes_len != len(self.connected_nodes):
+            self.connected_nodes_len = len(self.connected_nodes)
+            self.current_score_tick = 0
+            for node in self.connected_nodes:
+                self.current_score_tick += node.bonus
+
+        self.score += self.current_score_tick
         
         self.update_stats()
         
         if self.board:
-            self.board.update_board(self.power, self.stats)
+            self.board.update_board(self.score, self.stats)
         
-        print(f"Power: {self.power}")
+        print(f"Score: {self.score}")
+        print(f"Current Score Tick: {self.current_score_tick}")
     
     def update_stats(self):
-        self.stats.update_users(self.power)
-        self.stats.update_energy(self.connected_nodes, self.current_power_tick)
+        self.stats.update_users(self.score)
+        self.stats.update_energy(self.connected_nodes, self.current_score_tick)
 
 
 

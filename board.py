@@ -39,18 +39,16 @@ class Board:
             self.level_1_ai()
         else:
             self.level_2_ai()
+            
         self.update_score(score)
         self.generate_map()
 
     def update_score(self, score):
         list_score = [digit for digit in str(score)]
-        print(list_score)
-        print(self.middle_x)
-        print(self.middle_y)
-        
+        print(f"List score: {list_score}")
+
         if len(list_score) == 1:
-            print(f"poopy wanted a name: {len(self.map_grid)} {len(self.map_grid[0])}")
-            self.map_grid[self.middle_y][self.middle_x] = list_score[0]
+            self.map_grid[self.middle_y][self.middle_x] = list_score[0]   
         elif len(list_score) == 2:
             self.map_grid[self.middle_y][self.middle_x] = list_score[1]
             self.map_grid[self.middle_y][self.middle_x - 1] = list_score[0]

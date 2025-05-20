@@ -23,13 +23,13 @@ class GameManager:
         
         while True:
             choice = input("'1' to tick 2 to exit ")
-            if the_ai.power >= 2:
+            if the_ai.score >= 2:
                 the_map = event_manager.power_plant_event(the_map,1,1)
 
                 the_ai.connected_nodes.append(PowerPlantNode(1,50))
 
             if choice == "1":
-                print(the_ai.power)
+                print(the_ai.score)
                 the_ai.tick()
             else:
                 break
