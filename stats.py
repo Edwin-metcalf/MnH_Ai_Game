@@ -27,6 +27,7 @@ class Stats:
 
     
     def update_energy(self, connected_nodes, score_tick):
+        #Energy costs based on users and production based on purchased/ produced
         self.costs = 0
         if self.energy_total < 0:
             self.energy_total = 0

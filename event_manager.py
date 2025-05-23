@@ -1,8 +1,9 @@
-#from event import Event
+from event import WebScrapeEvent
 from power_plant_event import PowerPlantEvent
 
 class EventManager:
     def __init__(self):
+        self.web_scrape_event_happened = False
         pass
 
     def process_event(self, event):
@@ -17,5 +18,20 @@ class EventManager:
         power_plant = PowerPlantEvent()
         new_board = power_plant.create_power_plant(board,x,y)
         return new_board
+    
+    def web_scrape_event(self):
+        self.web_scrape_event_happened = True
+        web_scrape_event = WebScrapeEvent()
+        answer_dict = web_scrape_event.buy_data_or_scrape()
+
+        cost = answer_dict.get("cost")
+        score = answer_dict.get("score")
+        
+        return [cost, score]
+        
+        
+
+
+
 
 

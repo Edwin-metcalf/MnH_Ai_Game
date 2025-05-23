@@ -22,11 +22,21 @@ class GameManager:
         choice = input("turn the ai on? ")
         
         while True:
+            if not event_manager.web_scrape_event_happened and the_ai.score > 8:
+                print(f"SCORE before scrape:  {the_ai.current_score_tick}")
+                print(f"MONEY before scrape:  {the_ai.stats.money_total}")
+                choice = event_manager.web_scrape_event()
+                the_ai.stats.money_total += choice[0]
+                the_ai.current_score_tick += choice[1]
+                print(f"SCORE AFTER scrape:  {the_ai.current_score_tick}")
+                print(f"MONEY AFTER scrape:  {the_ai.stats.money_total}")
+
             choice = input("'1' to tick 2 to exit ")
             if the_ai.score == 5:
                 the_map = event_manager.power_plant_event(the_map,1,1)
 
                 the_ai.connected_nodes.append(PowerPlantNode(1,525))
+
 
             if choice == "1":
                 print(the_ai.score)
