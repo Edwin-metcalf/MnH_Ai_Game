@@ -21,21 +21,13 @@ class WebScrapeEvent:
                 #output["public eye"] = x
                 #when we add stat like public perspective this would effect it 
 
-
             elif response == "2":
                 print("You chose to scrape off lots of major sites, the legality and morality is in a grey area but your AI will improve")
                 output["cost"] = 0
                 output["score"] = 5
-                
-
 
             else: 
                 print("that is an invalid input please try '1' or '2' ")
             
             return output
             
-
-
-
-        
-    

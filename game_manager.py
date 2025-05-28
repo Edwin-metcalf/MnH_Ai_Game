@@ -39,7 +39,6 @@ class GameManager:
 
 
             if choice == "1":
-                print(the_ai.score)
                 the_ai.tick()
             else:
                 break
